@@ -61,6 +61,7 @@
 
 
     <script>
+    
         const userForm = document.getElementById('userForm');
         const userList = document.getElementById('userList');
         const button = document.getElementById('submit')
@@ -69,8 +70,10 @@
           // Function to fetch and display the updated user list
           async function fetchUserList() {
             try {
+                console.log("Fetching all users for reloading")
                 const response = await fetch('http://127.0.0.1:4000/all');
                 const users = await response.json();
+                console.log(users)
 
                 // Display the updated user list
                 userList.innerHTML = '<ul>' + users.map(user => `<li>${user.name} ${user.surname} - ${user.email}</li>`).join('') + '</ul>';
@@ -101,23 +104,13 @@
                 const response = await fetch(url, {
                     method: 'POST',
                 });
-               
-
-                if (response.status === 200) {
-                    console.log("Sent Request /all")
-                    // Successfully added the user, now fetch the updated user list
-                    const userListResponse = await fetch('http://127.0.0.1:4000/all');
-                    const users = await userListResponse.json();
-
-                    // Display the updated user list
-                    userList.innerHTML = '<ul>' + users.map(user => `<li>${user.name} ${user.surname} - ${user.email}</li>`).join('') + '</ul>';
-                } else {
-                    // Handle the error response here
-                    console.error('Failed to add user.');
-                }
             } catch (error) {
                 console.error('An error occurred:', error);
             }
+            finally{
+                window.location.reload();
+            }
+
         });
     </script>
 </body>

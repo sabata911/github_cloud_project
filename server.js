@@ -10,6 +10,13 @@ app.use(
     extended: true,
   })
 );
+// Enable CORS for all routes
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin (insecure, use a specific origin in production)
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 // get the client
 const mysql = require('mysql2');
@@ -57,6 +64,7 @@ app.post('/add', (req, res) => {
      if (error) return res.json({ error: error });
 
      });
+     res.sendStatus(200);
 
  
 });
