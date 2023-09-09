@@ -34,7 +34,7 @@ const connection = mysql.createConnection({
 // Define a route to retrieve all users
 app.get('/all', (req, res) => {
   // Select all users from the MySQL database
-  const query = 'SELECT * FROM users';
+
   connection.query(
     'SELECT * FROM `user`',
     function(err, results, fields) {
