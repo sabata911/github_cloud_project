@@ -61,8 +61,9 @@ app.post('/add', (req, res) => {
   const { name, surname, email, password } = req.query;
 
   connection.query('INSERT INTO user (name, surname, email, password) VALUES (?,?,?,?)', [name, surname, email, password],(error, results) => {
-     if (error) return res.json({ error: error });
-
+     if (error){
+      return res.status(500).json({ error: error });
+     }
      });
      res.sendStatus(200);
 
