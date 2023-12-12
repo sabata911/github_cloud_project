@@ -1,9 +1,15 @@
 # node-express
 
-This is a starter ExpressJs project, you can run it as a standalone
-app using `npm run server` in the root of the project.
-The server will be listening to request on port `3000`,
-so you can test the server in a browser accessing `http://localhost:3000` or via `cURL`.
+This is a simple ExpressJs Application that adds users to the database
+and lists in the secreen.
 
-Before running the command `npm run server` you need to run `npm install` to
-install the dependencies
+
+# Requirements
+This application needs a mysql instance with a database name "test"
+
+# How to run
+To run this Application locally:
+```
+npm install
+npm start
+```
