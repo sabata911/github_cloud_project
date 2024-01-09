@@ -10,6 +10,7 @@ app.use(
     extended: true,
   })
 );
+
 // Enable CORS for all routes
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin (insecure, use a specific origin in production)
@@ -29,8 +30,6 @@ const connection = mysql.createConnection({
   database: 'test',
   password: 'Admin123!'
 });
-
-
 
 // Define a route to retrieve all users
 app.get('/all', (req, res) => {
