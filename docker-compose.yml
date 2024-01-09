@@ -3,7 +3,7 @@ version: '3.3'
 services:
   db:
     container_name: mysql
-    image: mysql:latest
+    image: sabata911/mysql:latest
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
@@ -18,7 +18,7 @@ services:
 
   app:
     container_name: node.js
-    image: nodejs-app:latest
+    image: sabata911/nodejs-app:latest
     build:
       context: .
       dockerfile: Dockerfile
